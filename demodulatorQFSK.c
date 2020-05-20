@@ -150,7 +150,7 @@ static void AddSempl(complex sempl){
 	
 	// for ALE
 	if(RelativeBaudRate - (1000.f/12000.f) == 0.f)
-		RelativeBaudRate = 200.f/12000.f;
+		RelativeBaudRate = 100.f/12000.f;
 	
 	// Integrators
 	Index++;
