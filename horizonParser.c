@@ -335,7 +335,7 @@ static complex Converter(uint32_t src){
 		uint32_t Collector;
 	} Converter;
 	Converter.Collector = src;
-	result.re = (float)Converter.Field.Re / 2048.f;
-	result.im = (float)Converter.Field.Im / 2048.f;
+	result.re = (float)Converter.Field.Im / 2048.f;
+	result.im = (float)Converter.Field.Re / 2048.f;
 	return result;
 }
