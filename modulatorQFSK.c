@@ -81,6 +81,10 @@ static void RelativeFrequencyShiftSet(float relativeFrequencyShift){
 static float RelativeFrequencyShiftGet(void){return RelativeFrequencyShift;}
 static complex GetSempl(void){
 	
+	// for ALE
+	if(RelativeBaudRate - (1000.f/12000.f) == 0.f)
+		RelativeBaudRate = 200.f/12000.f;
+	
 	PhaseSymbol += RelativeBaudRate;
 	if(PhaseSymbol >= 1.f){
 		PhaseSymbol -= 1.f;

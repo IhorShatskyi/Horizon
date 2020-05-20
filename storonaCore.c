@@ -93,13 +93,35 @@ static struct {
 };
 
 // Mode - BaudeRate Table
-static float BaudRateTable[] = {50.f, 80.f, 100.f, 125.f, 160.f, 200.f, 250.f, 400.f, 500.f};
-static float FrequencyShift[] = {456.7f, 416.7f, 456.7f, 456.7f, 416.7f, 456.7f, 456.7f, 256.7f, 456.7f};
+static float BaudRateTable[] = {
+	50.f, // 100 bit/sec
+	80.f, // 160 bit/sec
+	100.f, // 200 bit/sec
+	125.f, // 250 bit/sec
+	160.f, // 320 bit/sec
+	200.f, // 400 bit/sec
+	250.f, // 500 bit/sec
+	400.f, // 800 bit/sec
+	500.f, // 1000 bit/sec
+	1000.f // !!! 400 bit/sec, devsation = 1000 Hz, Fcenter = 0 Hz for ALE
+};
+static float FrequencyShift[] = {
+	456.7f,
+	416.7f,
+	456.7f,
+	456.7f,
+	416.7f,
+	456.7f,
+	456.7f, 
+	256.7f,
+	456.7f,
+	0.f // !!! 400 bit/sec, devsation = 1000 Hz, Fcenter = 0 Hz for ALE
+};
 
 // Description master functions
 static void ParserInit(void){StoronaDriver.Init();}
 static void ParserMode(uint8_t mode){
-	if(mode > 8){
+	if(mode > 9){
 		Print("ERROR: Uncorrect mode "); PrintLn(mode);
 	} else {
 		CoreParameter.Enable = 1;

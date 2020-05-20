@@ -148,6 +148,10 @@ static void AddSempl(complex sempl){
 	complex lineF3 = Complex.Multiply(sempl, VcoF3);
 	complex lineF4 = Complex.Multiply(sempl, VcoF4);
 	
+	// for ALE
+	if(RelativeBaudRate - (1000.f/12000.f) == 0.f)
+		RelativeBaudRate = 200.f/12000.f;
+	
 	// Integrators
 	Index++;
 	Index &= 0xFF;
